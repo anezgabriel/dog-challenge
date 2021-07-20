@@ -12,6 +12,25 @@ import { validateAddDogToTeam } from '../../Helpers';
 import { useSnackbar } from 'notistack';
 
 const useStyles = makeStyles((theme) => ({
+  galleryItem: {
+    width: '300px',
+    height: '300px',
+    marginBottom: '1rem',
+    position: 'relative',
+    '& > img': {
+      objectFit: 'cover',
+      width: '100%',
+      height: '100%'
+    },
+    [theme.breakpoints.up('md')]: {
+      '& > img': {
+        filter: 'brightness(0.35)'
+      },
+      '&:hover > img': {
+        filter: 'brightness(0.75)'
+      }
+    }
+  },
   favoriteButton: {
     position: 'absolute',
     top: '10px',
@@ -20,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function GalleryItem({ img }) {
+function DogGalleryItem({ img }) {
   const { enqueueSnackbar } = useSnackbar();
   const dispatch = useDispatch();
   const [isOnTeam, setIsOnTeam] = useState(false);
@@ -61,7 +80,7 @@ function GalleryItem({ img }) {
   };
 
   return (
-    <div>
+    <div className={classes.galleryItem}>
       {!isOnTeam ? (
         <Tooltip title="Add to my team!">
           <IconButton
@@ -90,4 +109,4 @@ function GalleryItem({ img }) {
   );
 }
 
-export default GalleryItem;
+export default DogGalleryItem;

@@ -41,10 +41,6 @@ function SearchResults() {
     }
   }, [data, q]);
 
-  useEffect(() => {
-    console.log(dogs);
-  }, [dogs]);
-
   return (
     <div className={classes.wrapper}>
       <Information />

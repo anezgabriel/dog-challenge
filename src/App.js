@@ -6,7 +6,7 @@ import { Breed, Home, MyTeam } from './Pages';
 import Header from './Components/UI/Header';
 import Sidebar from './Components/UI/Sidebar';
 import useHttp from './hooks/useHttp';
-import { setData } from './features/dog/dogSlice';
+import { setData, setTeamFromLocalStorate } from './features/dog/dogSlice';
 import { formatDogsData } from './Helpers';
 import SearchResults from './Pages/SearchResults';
 
@@ -22,6 +22,13 @@ function App() {
       dispatch(setData(dogs));
     })();
   }, [dispatch, sendRequest]);
+
+  useEffect(() => {
+    const team = JSON.parse(localStorage.getItem('team'));
+    if (team) {
+      dispatch(setTeamFromLocalStorate(team));
+    }
+  }, [dispatch]);
 
   const handleSidebarOpen = () => setIsSidebarOpen(true);
   const handleSidebarClose = () => setIsSidebarOpen(false);

@@ -5,7 +5,7 @@ import { paginator } from '../../Helpers';
 import clsx from 'clsx';
 import useHttp from '../../hooks/useHttp';
 import Loader from '../UI/Loader';
-import GalleryItem from './GalleryItem';
+import DogGalleryItem from '../Dogs/DogGalleryItem';
 
 const useStyles = makeStyles((theme) => ({
   galleryGrid: {
@@ -90,7 +90,7 @@ function ImageGallery({ url }) {
           </div>
           <div className={classes.galleryGrid}>
             {images.data.map((img) => (
-              <GalleryItem key={img} img={img} />
+              <DogGalleryItem key={img} img={img} />
             ))}
           </div>
           <div className={clsx(classes.bottomPagination, classes.pagination)}>

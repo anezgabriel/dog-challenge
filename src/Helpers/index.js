@@ -84,3 +84,31 @@ export const validateAddDogToTeam = (team, dog) => {
 export const searchBreed = (dogArr, query) => {
   return dogArr.filter((dog) => dog.name.includes(query));
 };
+
+/* This functions returns an array of breeds
+ * for display on the <MyTeam /> Page
+ */
+export const sortBreeds = (myTeam) => {
+  const allBreeds = [];
+  const formattedBreeds = [];
+
+  myTeam.forEach((dog) => {
+    allBreeds.push(dog.breed);
+  });
+
+  const breeds = [...new Set(allBreeds)];
+
+  breeds.forEach((item) => {
+    const dogs = [];
+    const name = item;
+    myTeam.forEach((dog) => {
+      if (dog.breed === name) {
+        dogs.push(dog.img);
+      }
+    });
+
+    formattedBreeds.push({ name, dogs });
+  });
+
+  return formattedBreeds;
+};
