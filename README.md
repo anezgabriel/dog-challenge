@@ -17,6 +17,8 @@ The command used was:
 
 ### Reviewing the project
 
+###### You can view a live version of this project deployed with [netlify](https://dog-challenge-anezgabriel.netlify.app/)
+
 To run the project follow these steps:
 
 - clone this repository with: `git clone https://gitlab.com/greencodesoftware/interview-challenges/dogs-challenge-gabriel.git`
